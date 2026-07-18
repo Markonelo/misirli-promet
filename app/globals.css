@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Suzuki accents (on a dark, polished UI) ── */
+  --color-red: #E2231A;
+  --color-red-dark: #B81810;
+  --color-red-light: #FF453A;
+  --color-red-muted: rgba(226, 35, 26, 0.14);
+
+  --color-blue: #2D7BE0;
+  --color-blue-deep: #003C7E;
+  --color-blue-mid: #1763C6;
+  --color-blue-light: #5AA0F0;
+  --color-blue-sky: #12233A;
+  --color-blue-muted: rgba(45, 123, 224, 0.16);
+
+  /* ── Neutrals — remapped to a dark palette so existing utilities
+     (text-ink, bg-cloud, border-line …) adapt automatically. ── */
+  --color-ink: #ECF0F7;        /* primary text (light on dark) */
+  --color-ink-soft: #C4CDDC;
+  --color-mute: #8A95A8;
+  --color-line: #262D3A;       /* hairline borders on dark */
+  --color-cloud: #12161F;      /* section surface */
+  --color-cloud-2: #0D111A;    /* deeper surface */
+
+  /* Explicit surfaces */
+  --color-bg: #0A0D14;         /* page background — the "black" around panels */
+  --color-surface: #161B25;    /* cards */
+  --color-surface-2: #1C2230;  /* raised cards / chips */
+
+  /* Fonts — Exo 2 (heading) & Manrope (body), both ship native Cyrillic. */
+  --font-heading: var(--font-exo2), "Exo 2", system-ui, sans-serif;
+  --font-body: var(--font-manrope), "Manrope", system-ui, sans-serif;
+
+  /* Shared rounding for the polished, rounded-everywhere look */
+  --radius-panel: 2rem;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+::selection { background: #E2231A; color: #fff; }
+::-moz-selection { background: #E2231A; color: #fff; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0D111A; }
+::-webkit-scrollbar-thumb { background: #2A3242; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #2D7BE0; }
+
+/* ── Layout helpers ── */
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .section-padding { padding-top: 5.5rem; padding-bottom: 5.5rem; }
+}
+
+.container-wide { max-width: 80rem; margin-inline: auto; padding-inline: 1.25rem; }
+@media (min-width: 768px) { .container-wide { padding-inline: 2rem; } }
+
+/* Component classes live in @layer components so Tailwind UTILITIES (e.g.
+   `hidden`, `md:inline-flex`, `!px-5`) can override them. */
+@layer components {
+  /* ── Section kicker label ── */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-red);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--color-red);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    border-radius: 999px;
+    padding: 0.85rem 1.7rem;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .btn-primary:hover {
+    background: var(--color-red-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-blue {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--color-blue);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.85rem 1.7rem;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .btn-blue:hover { background: var(--color-blue-mid); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.85rem 1.7rem;
+    border: 1.5px solid var(--color-line);
+    transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-blue);
+    color: #fff;
+    background: rgba(45, 123, 224, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* ── Glowing accent button (hero + most important CTAs) ── */
+  .glow-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 0.85rem 1.7rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #fff;
+    background: linear-gradient(180deg, #57A8FF 0%, #2D7BE0 55%, #1763C6 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.30),
+      0 6px 16px rgba(45, 123, 224, 0.22),
+      0 0 12px rgba(45, 123, 224, 0.18);
+    transition: transform .18s ease, filter .25s ease, box-shadow .3s ease;
+  }
+  .glow-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.07) saturate(1.05);
+  }
+  .glow-btn:active,
+  .glow-btn[data-state="clicked"] {
+    transform: scale(0.95);
+  }
+
+  /* Red variant — same glow, brand red */
+  .glow-btn-red {
+    background: linear-gradient(180deg, #FF6A5C 0%, #E2231A 55%, #C21A12 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      0 6px 16px rgba(226, 35, 26, 0.22),
+      0 0 12px rgba(226, 35, 26, 0.20);
+  }
+
+  /* ── Cards ── */
+  .soft-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 1.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease, border-color .35s ease;
+  }
+  .soft-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(45, 123, 224, 0.5);
+  }
+}
+
+/* ── Premium numerals (prices, stats, engine sizes) ── */
+.nums {
+  font-family: var(--font-sora), "Sora", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: -0.015em;
+}
+
+/* ── Gradient text / decorative ── */
+.gradient-rb {
+  background: linear-gradient(100deg, var(--color-blue-light) 0%, var(--color-blue) 45%, var(--color-red-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Soft grid / dot backdrop (light dots on dark) */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ── Brand logo marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
