@@ -292,7 +292,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
 
       {/* ══ CTA band ══ */}
       <div className="mt-12 rounded-[2rem] border border-blue/25 bg-gradient-to-br from-blue-deep via-blue-mid to-blue p-8 shadow-[0_10px_60px_-6px_rgba(45,123,224,0.28)] sm:p-11">
-        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="font-heading text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl">
               Заинтересиран за {car.name}?
@@ -301,7 +301,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
               Јави се или испрати порака — ќе ти дадеме актуелна понуда, услови за плаќање и термин за тест возење во салонот во Битола.
             </p>
           </div>
-          <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row md:w-auto">
+          <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row lg:w-auto">
             <a
               href={SITE.phoneHref}
               className="inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4.5 font-heading text-base font-bold text-blue-deep transition-transform hover:-translate-y-0.5"

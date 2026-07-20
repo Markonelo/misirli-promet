@@ -223,6 +223,23 @@ h1, h2, h3, h4, h5, h6 {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* ── Filter sidebar stickiness ──
+   Only pin the (tall) filter panel when the viewport is both wide enough
+   for the sidebar layout AND tall enough to display the whole panel below
+   the header. On shorter laptop viewports (incl. Windows display scaling)
+   it stays in normal flow and scrolls with the page, so its bottom filters
+   are never clipped. The max-height + scroll is a safety net for the rare
+   case where the panel is still slightly taller than the space. */
+@media (min-width: 1024px) and (min-height: 820px) {
+  .filter-sticky {
+    position: sticky;
+    top: 84px;
+    max-height: calc(100dvh - 104px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
 /* Soft grid / dot backdrop (light dots on dark) */
 .dot-grid {
   background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);

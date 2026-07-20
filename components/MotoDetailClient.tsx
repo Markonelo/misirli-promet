@@ -32,6 +32,8 @@ import {
 import { SITE } from "@/lib/site";
 import { formatEUR } from "@/lib/utils";
 import FavoriteButton from "./FavoriteButton";
+import Lightbox from "./Lightbox";
+import { Expand } from "lucide-react";
 
 // Pick a sensible icon for a piece of equipment based on its wording.
 function featureIcon(f: string) {
@@ -55,6 +57,7 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
   const [vIndex, setVIndex] = useState(0);
   const [imgIndex, setImgIndex] = useState(0);
   const [colorIndex, setColorIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const variant = moto.variants[vIndex];
   const colors = moto.colors ?? [];
   const hasColors = colors.length > 0;
@@ -62,6 +65,14 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
   // When colours exist, the selected colour drives the main photo; otherwise
   // fall back to the thumbnail gallery.
   const mainImage = hasColors ? colors[colorIndex].image : moto.images[imgIndex];
+
+  // Unified gallery for the lightbox — colour photos when present, else the
+  // regular image gallery. The active index and its setter track whichever
+  // source is driving the main photo.
+  const galleryImages = hasColors ? colors.map((c) => c.image) : moto.images;
+  const galleryIndex = hasColors ? colorIndex : imgIndex;
+  const setGalleryIndex = hasColors ? setColorIndex : setImgIndex;
+  const canOpenLightbox = hasColors || hasImages;
 
   // ── Derive real specs from the feature list + copy (no empty placeholders) ──
   const hay = [...moto.features, moto.description, moto.shortDesc].join(" ");
@@ -116,7 +127,8 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
                 <img
                   src={mainImage}
                   alt={hasColors ? `${moto.name} — ${colors[colorIndex].name}` : moto.name}
-                  className="h-full w-full object-cover"
+                  onClick={() => setLightboxOpen(true)}
+                  className="h-full w-full cursor-zoom-in object-cover"
                 />
               ) : (
                 <div className="dot-grid flex h-full w-full flex-col items-center justify-center gap-2 text-blue/40">
@@ -136,6 +148,17 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
               )}
 
               <FavoriteButton slug={moto.slug} name={moto.name} />
+
+              {/* Expand → open the full-screen lightbox */}
+              {canOpenLightbox && (
+                <button
+                  onClick={() => setLightboxOpen(true)}
+                  aria-label="Зголеми слика"
+                  className="absolute bottom-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white shadow-[0_4px_16px_rgba(0,0,0,0.35)] backdrop-blur-md transition-colors hover:bg-black/70"
+                >
+                  <Expand size={18} className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)]" />
+                </button>
+              )}
             </div>
 
             {/* Thumbnails — hidden when colour options drive the photo */}
@@ -398,7 +421,7 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
 
       {/* ══ CTA band ══ */}
       <div className="mt-12 rounded-[2rem] border border-blue/25 bg-gradient-to-br from-blue-deep via-blue-mid to-blue p-8 shadow-[0_10px_60px_-6px_rgba(45,123,224,0.28)] sm:p-11">
-        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="font-heading text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl">
               Заинтересиран за {moto.name}?
@@ -407,7 +430,7 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
               Јави се или испрати порака — ќе ти дадеме актуелна понуда, услови за плаќање и термин за тест возење во салонот во Битола.
             </p>
           </div>
-          <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row md:w-auto">
+          <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row lg:w-auto">
             <a
               href={SITE.phoneHref}
               className="inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4.5 font-heading text-base font-bold text-blue-deep transition-transform hover:-translate-y-0.5"
@@ -423,6 +446,17 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
           </div>
         </div>
       </div>
+
+      {/* ══ Full-screen image lightbox ══ */}
+      {lightboxOpen && canOpenLightbox && (
+        <Lightbox
+          images={galleryImages}
+          index={galleryIndex}
+          alt={moto.name}
+          onIndexChange={setGalleryIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </div>
   );
 }

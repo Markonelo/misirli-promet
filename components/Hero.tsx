@@ -58,9 +58,9 @@ export default function Hero() {
   return (
     <section className="bg-blue-sky p-2 sm:p-2.5">
       <motion.div
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="relative h-[calc(100svh-1rem)] min-h-[38rem] w-full overflow-hidden rounded-[1.75rem] sm:h-[calc(100svh-1.25rem)] sm:rounded-[2rem]"
       >
         {/* Brand navy backdrop — matched to the hero photo so the bikes (placed
@@ -86,9 +86,9 @@ export default function Hero() {
         <div className="relative z-10 flex h-full flex-col items-center px-5 sm:px-8">
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
             className="mt-24 text-center font-heading text-[2.25rem] font-extrabold leading-[1.04] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:mt-28 sm:text-6xl lg:mt-32 lg:text-7xl"
           >
             Најди го моторот<br />од соништата
@@ -96,9 +96,9 @@ export default function Hero() {
 
           {/* Search / filter bar */}
           <motion.form
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
             onSubmit={(e) => {
               e.preventDefault();
               go();
@@ -198,9 +198,9 @@ export default function Hero() {
           {/* Bottom row — description (left) + location card (right) */}
           <div className="mt-auto flex w-full flex-col gap-4 pb-6 sm:flex-row sm:items-end sm:justify-between sm:pb-7">
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.12, ease: "easeOut" }}
               className="max-w-xs font-body text-sm leading-relaxed text-white/80 drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
             >
               Мисирли Промет — мотоцикли, скутери и квадови во {SITE.city}.
@@ -211,9 +211,9 @@ export default function Hero() {
               href={SITE.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.34 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.14, ease: "easeOut" }}
               className="flex items-center gap-4 self-start rounded-2xl bg-white px-5 py-5 shadow-[0_18px_44px_rgba(0,0,0,0.45)] transition-transform hover:-translate-y-0.5 sm:self-auto"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-9 w-9 shrink-0 text-red">

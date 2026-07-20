@@ -84,6 +84,7 @@ function Dropdown({
   onChange,
   open,
   onToggle,
+  className = "",
 }: {
   label: string;
   options: Option[];
@@ -91,10 +92,11 @@ function Dropdown({
   onChange: (v: string) => void;
   open: boolean;
   onToggle: () => void;
+  className?: string;
 }) {
   const current = options.find((o) => o.value === value) ?? options[0];
   return (
-    <div className="relative">
+    <div className={`relative ${className}`}>
       <span className={labelCls}>{label}</span>
       <button
         type="button"
@@ -223,8 +225,11 @@ export default function MotoListing() {
 
   return (
     <div className="lg:grid lg:grid-cols-[290px_1fr] lg:items-start lg:gap-8">
-      {/* ── Filter sidebar (blue, sticks under the header on scroll) ── */}
-      <aside className="lg:sticky lg:top-[84px]">
+      {/* ── Filter sidebar (blue) ──
+          `filter-sticky` (see globals.css) only pins the panel when the
+          viewport is tall enough to show it in full; on short laptop
+          viewports it scrolls with the page so nothing is ever clipped. */}
+      <aside className="filter-sticky">
         <div ref={panelRef} className="rounded-[1.5rem] bg-blue-deep p-5 shadow-[0_18px_40px_rgba(0,0,0,0.35)] sm:p-6">
           {/* Header */}
           <div className="mb-4 flex items-center justify-between">
@@ -310,6 +315,7 @@ export default function MotoListing() {
               open={openKey === "sort"}
               onToggle={() => toggle("sort")}
               onChange={(v) => pick(setSort, v as SortKey)}
+              className="col-span-2 lg:col-span-1"
             />
           </div>
         </div>
