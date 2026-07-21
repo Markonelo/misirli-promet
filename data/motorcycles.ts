@@ -328,7 +328,16 @@ export const motorcycles: Motorcycle[] = [
     description:
       "Zontes 125X е модерен премиум макси-скутер со богата опрема и впечатлив дизајн. Достапен на преднарачка по специјална цена, со испорака во 2026 година.",
     variants: [{ cc: 125, price: 3290 }],
-    images: ["/moto/zontes-125x/1.jpg"],
+    images: [
+      "/moto/zontes-125x/krem.jpg",
+      "/moto/zontes-125x/zelena.jpg",
+      "/moto/zontes-125x/crna.jpg",
+    ],
+    colors: [
+      { name: "Крем", hex: "#c9b79a", image: "/moto/zontes-125x/krem.jpg" },
+      { name: "Зелена", hex: "#4b5c46", image: "/moto/zontes-125x/zelena.jpg" },
+      { name: "Црна", hex: "#2b2b2d", image: "/moto/zontes-125x/crna.jpg" },
+    ],
     features: ["Премиум опрема", "LED светла", "Дигитален дисплеј", "Достапен на преднарачка"],
     isNew: true,
   },
@@ -600,21 +609,39 @@ export const motorcycles: Motorcycle[] = [
     description:
       "Zontes 368 G е богато опремен адвенчер-турер со едноцилиндричен 368cc мотор (38.8 КС, 40 Nm), водено-масно ладење и двоканален ABS. Со TFT дисплеј во боја, целосно LED осветлување и резервоар од 17.5L — подготвен за долги авантури.",
     variants: [{ cc: 368, price: 6290 }],
-    images: ["/moto/zontes-368-g/1.jpg"],
+    images: [
+      "/moto/zontes-368-g/siva.jpg",
+      "/moto/zontes-368-g/kafeava.jpg",
+      "/moto/zontes-368-g/zelena.jpg",
+      "/moto/zontes-368-g/crna.jpg",
+    ],
+    colors: [
+      { name: "Сива", hex: "#c4c7ca", image: "/moto/zontes-368-g/siva.jpg" },
+      { name: "Кафеава", hex: "#a68b6a", image: "/moto/zontes-368-g/kafeava.jpg" },
+      { name: "Зелена", hex: "#6a7860", image: "/moto/zontes-368-g/zelena.jpg" },
+      { name: "Црна", hex: "#262626", image: "/moto/zontes-368-g/crna.jpg" },
+    ],
     features: ["38.8 КС", "Двоканален ABS", "TFT дисплеј", "Резервоар 17.5L"],
     featured: true,
   },
   {
     slug: "zontes-368-k",
     name: "Zontes 368 K",
-    category: "naked",
+    category: "scooter",
     year: 2025,
-    shortDesc: "Нејкед стрит со 368cc, водено ладење и целосна LED опрема.",
+    shortDesc: "Луксузен туринг макси-скутер со 368cc, висока заштита од ветар и ABS.",
     description:
-      "Zontes 368 K е стрит/нејкед верзијата на 368 платформата — истиот моќен едноцилиндричен 368cc мотор (38.8 КС) во агресивно нејкед пакување, со TFT дисплеј во боја, двоканален ABS и целосно LED осветлување.",
+      "Zontes 368 K е луксузен туринг макси-скутер на 368 платформата — 368cc едноцилиндричен мотор со водено ладење, висока заштита од ветар и удобна туринг позиција. Со TFT дисплеј во боја, двоканален ABS и целосно LED осветлување — создаден за релаксирани долги релации.",
     variants: [{ cc: 368, price: 5490 }],
-    images: ["/moto/zontes-368-k/1.jpg"],
-    features: ["38.8 КС", "Двоканален ABS", "TFT дисплеј", "LED осветлување"],
+    images: [
+      "/moto/zontes-368-k/siva.jpg",
+      "/moto/zontes-368-k/crna.jpg",
+    ],
+    colors: [
+      { name: "Сива", hex: "#b8bcc0", image: "/moto/zontes-368-k/siva.jpg" },
+      { name: "Црна", hex: "#232323", image: "/moto/zontes-368-k/crna.jpg" },
+    ],
+    features: ["Туринг макси-скутер", "Двоканален ABS", "TFT дисплеј", "Висока заштита од ветар"],
   },
   {
     slug: "kove-500x",
@@ -680,18 +707,25 @@ export const motorcycles: Motorcycle[] = [
   {
     slug: "zontes-703f",
     name: "Zontes 703F",
-    category: "naked",
+    category: "adventure",
     year: 2025,
-    shortDesc: "699cc трицилиндричен нејкед стритфајтер со ~96 КС и двоканален ABS.",
+    shortDesc: "Адвенчер-турер од средната класа со двоканален ABS, TFT дисплеј и спицасти тркала.",
     description:
-      "Zontes 703F е моќен нејкед стритфајтер со 699cc водено-ладен трицилиндричен мотор кој развива ~96 КС и 76 Nm. Опремен со двоканален ABS, целосно LED осветлување, TFT дисплеј и резервоар од 22L — врвот на Zontes стрит понудата.",
-    variants: [{ cc: 699, price: 7990 }],
+      "Zontes 703F е адвенчер-турер од средната класа — водено-ладен мотор од 700-класа, двоканален ABS, целосно LED осветлување и TFT дисплеј во боја. Со високо ветробранско стакло, спицасти тркала и голем резервоар подготвен е за долги авантури на асфалт и терен.",
+    variants: [{ cc: 700, price: 7990 }],
     images: [
-      "/moto/zontes-703f/1.jpg",
-      "/moto/zontes-703f/2.jpg",
-      "/moto/zontes-703f/3.jpg",
+      "/moto/zontes-703f/nardo.jpg",
+      "/moto/zontes-703f/white-red.jpg",
+      "/moto/zontes-703f/black-gold.jpg",
+      "/moto/zontes-703f/blue-orange.jpg",
     ],
-    features: ["~96 КС", "Трицилиндричен мотор", "Двоканален ABS", "TFT дисплеј"],
+    colors: [
+      { name: "Nardo сива / Сина", hex: "#8f979e", image: "/moto/zontes-703f/nardo.jpg" },
+      { name: "Бела / Црвена", hex: "#d9d9d9", image: "/moto/zontes-703f/white-red.jpg" },
+      { name: "Црна / Златна", hex: "#2a2a2a", image: "/moto/zontes-703f/black-gold.jpg" },
+      { name: "Сина / Портокалова", hex: "#3f5f8a", image: "/moto/zontes-703f/blue-orange.jpg" },
+    ],
+    features: ["Адвенчер-турер", "Двоканален ABS", "TFT дисплеј", "Спицасти тркала"],
     featured: true,
   },
   {
