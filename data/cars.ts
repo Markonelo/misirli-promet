@@ -11,8 +11,9 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 export type CarColor = {
-  name: string; // Macedonian colour name
-  hex: string;  // swatch colour
+  name: string;   // Macedonian colour name
+  hex: string;    // swatch colour
+  image?: string; // per-colour full-car render; selecting the swatch swaps the main photo
 };
 
 export type Car = {
@@ -45,14 +46,21 @@ export const cars: Car[] = [
     shortDesc: "Компактен, пргав и економичен хечбек — забавен за возење секој ден.",
     description:
       "Новиот Suzuki Swift е стилски, лесен и извонредно економичен градски автомобил. Со 1.2 DualJet мотор и благ хибриден систем нуди ниска потрошувачка, жив карактер и модерна опрема — идеален за секојдневно возење во град и на отворен пат.",
-    images: ["/cars/swift/1.jpg", "/cars/swift/2.jpg", "/cars/swift/3.jpg"],
+    images: [
+      "/cars/swift/blue.png",
+      "/cars/swift/red.png",
+      "/cars/swift/orange.png",
+      "/cars/swift/white.png",
+      "/cars/swift/black.png",
+      "/cars/swift/silver.png",
+    ],
     colors: [
-      { name: "Frontier Blue", hex: "#1f3a5f" },
-      { name: "Burning Red", hex: "#b81e26" },
-      { name: "Cool Yellow", hex: "#f4c542" },
-      { name: "Pure White Pearl", hex: "#f1f2f0" },
-      { name: "Super Black Pearl", hex: "#101012" },
-      { name: "Premium Silver", hex: "#c9ccce" },
+      { name: "Frontier Blue", hex: "#1f3a5f", image: "/cars/swift/blue.png" },
+      { name: "Burning Red", hex: "#b81e26", image: "/cars/swift/red.png" },
+      { name: "Sizzle Orange", hex: "#c2571d", image: "/cars/swift/orange.png" },
+      { name: "Pure White Pearl", hex: "#f1f2f0", image: "/cars/swift/white.png" },
+      { name: "Super Black Pearl", hex: "#101012", image: "/cars/swift/black.png" },
+      { name: "Premium Silver", hex: "#c9ccce", image: "/cars/swift/silver.png" },
     ],
     features: ["Благ хибрид 12V", "DualJet мотор", "Ниска потрошувачка", "Модерна инфозабава"],
     featured: true,
@@ -70,14 +78,21 @@ export const cars: Car[] = [
     shortDesc: "Компактен SUV со силен хибрид и легендарен ALLGRIP погон на сите тркала.",
     description:
       "Suzuki Vitara е препознатлив компактен SUV што комбинира издржливост, простор и ефикасност. Новиот 1.5 DualJet Strong Hybrid систем овозможува возење и во целосно електричен режим, додека ALLGRIP 4x4 технологијата дава сигурност на секаков терен и во секакви услови.",
-    images: ["/cars/vitara/1.jpg", "/cars/vitara/2.jpg", "/cars/vitara/3.jpg"],
+    images: [
+      "/cars/vitara/white.png",
+      "/cars/vitara/black.png",
+      "/cars/vitara/red.png",
+      "/cars/vitara/blue.png",
+      "/cars/vitara/silver.png",
+      "/cars/vitara/yellow.png",
+    ],
     colors: [
-      { name: "Superior White", hex: "#eeeeea" },
-      { name: "Cosmic Black", hex: "#111214" },
-      { name: "Bright Red", hex: "#c01823" },
-      { name: "Sphere Blue", hex: "#26364f" },
-      { name: "Silky Silver", hex: "#c7cacc" },
-      { name: "Solar Yellow", hex: "#f2c200" },
+      { name: "Superior White", hex: "#eeeeea", image: "/cars/vitara/white.png" },
+      { name: "Cosmic Black", hex: "#111214", image: "/cars/vitara/black.png" },
+      { name: "Bright Red", hex: "#c01823", image: "/cars/vitara/red.png" },
+      { name: "Sphere Blue", hex: "#26364f", image: "/cars/vitara/blue.png" },
+      { name: "Silky Silver", hex: "#c7cacc", image: "/cars/vitara/silver.png" },
+      { name: "Solar Yellow", hex: "#f2c200", image: "/cars/vitara/yellow.png" },
     ],
     features: ["Strong Hybrid", "ALLGRIP 4x4", "Висок клиренс", "Простран багажник"],
     featured: true,
@@ -94,14 +109,21 @@ export const cars: Car[] = [
     shortDesc: "Првиот целосно електричен Suzuki SUV — автентичен дизајн, нула емисии.",
     description:
       "e-Vitara е првиот целосно електричен SUV на Suzuki. Спојува автентичен SUV дизајн со модерна електрична платформа, тивко и моќно возење и напредна технологија. Избор за оние што сакаат чиста мобилност без компромис во карактер и практичност.",
-    images: ["/cars/e-vitara/1.jpg", "/cars/e-vitara/2.jpg", "/cars/e-vitara/3.jpg"],
+    images: [
+      "/cars/e-vitara/green.png",
+      "/cars/e-vitara/red.png",
+      "/cars/e-vitara/white.png",
+      "/cars/e-vitara/blue.png",
+      "/cars/e-vitara/grey.png",
+      "/cars/e-vitara/black.png",
+    ],
     colors: [
-      { name: "Land Breeze Green", hex: "#5b7d63" },
-      { name: "Opulent Red", hex: "#8f1b22" },
-      { name: "Arctic White", hex: "#f2f3f0" },
-      { name: "Celestial Blue", hex: "#2b4a73" },
-      { name: "Grandeur Gray", hex: "#54585c" },
-      { name: "Bluish Black", hex: "#14171c" },
+      { name: "Land Breeze Green", hex: "#5b7d63", image: "/cars/e-vitara/green.png" },
+      { name: "Opulent Red", hex: "#8f1b22", image: "/cars/e-vitara/red.png" },
+      { name: "Arctic White", hex: "#f2f3f0", image: "/cars/e-vitara/white.png" },
+      { name: "Celestial Blue", hex: "#2b4a73", image: "/cars/e-vitara/blue.png" },
+      { name: "Grandeur Gray", hex: "#54585c", image: "/cars/e-vitara/grey.png" },
+      { name: "Bluish Black", hex: "#14171c", image: "/cars/e-vitara/black.png" },
     ],
     features: ["100% електричен", "Автентичен SUV дизајн", "Нула емисии", "Напредна технологија"],
     isNew: true,
@@ -118,14 +140,21 @@ export const cars: Car[] = [
     shortDesc: "Простран кросовер SUV со турбо мотор и благ хибриден систем.",
     description:
       "Suzuki S-Cross е простран и удобен кросовер со 1.4 BOOSTERJET турбо мотор и 48V благ хибриден систем. Нуди повеќе простор за патници и багаж, богата опрема и опционен ALLGRIP 4x4 погон — практичен избор за семејство и подолги патувања.",
-    images: ["/cars/s-cross/1.jpg", "/cars/s-cross/3.jpg"],
+    images: [
+      "/cars/s-cross/white.png",
+      "/cars/s-cross/black.png",
+      "/cars/s-cross/red.png",
+      "/cars/s-cross/blue.png",
+      "/cars/s-cross/brown.png",
+      "/cars/s-cross/grey.png",
+    ],
     colors: [
-      { name: "Cool White Pearl", hex: "#f0f0ee" },
-      { name: "Cosmic Black", hex: "#111214" },
-      { name: "Energetic Red", hex: "#b81e2b" },
-      { name: "Sphere Blue", hex: "#2a445f" },
-      { name: "Canyon Brown", hex: "#5a4433" },
-      { name: "Titan Dark Gray", hex: "#3a3d40" },
+      { name: "Cool White Pearl", hex: "#f0f0ee", image: "/cars/s-cross/white.png" },
+      { name: "Cosmic Black", hex: "#111214", image: "/cars/s-cross/black.png" },
+      { name: "Energetic Red", hex: "#b81e2b", image: "/cars/s-cross/red.png" },
+      { name: "Sphere Blue", hex: "#2a445f", image: "/cars/s-cross/blue.png" },
+      { name: "Canyon Brown", hex: "#8a5a2b", image: "/cars/s-cross/brown.png" },
+      { name: "Titan Dark Gray", hex: "#3a3d40", image: "/cars/s-cross/grey.png" },
     ],
     features: ["BOOSTERJET турбо", "Благ хибрид 48V", "ALLGRIP 4x4", "Простран за семејство"],
   },

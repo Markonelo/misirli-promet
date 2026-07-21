@@ -152,7 +152,13 @@ export default function CarDetailClient({ car }: { car: Car }) {
                   {colors.map((c, i) => (
                     <button
                       key={c.name}
-                      onClick={() => setColorIndex(i)}
+                      onClick={() => {
+                        setColorIndex(i);
+                        if (c.image) {
+                          const idx = car.images.indexOf(c.image);
+                          if (idx >= 0) setImgIndex(idx);
+                        }
+                      }}
                       aria-label={c.name}
                       title={c.name}
                       className={`relative h-10 w-10 rounded-full border-2 transition-all ${
