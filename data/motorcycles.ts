@@ -53,16 +53,13 @@ export const motorcycles: Motorcycle[] = [
   // ── NAKED / STREET ──────────────────────────────────────────────────────
   {
     slug: "tekken",
-    name: "HMC Tekken",
+    name: "Hamachi Tekken 125",
     category: "naked",
     year: 2025,
-    shortDesc: "Нејкед стрит мотор со агресивен став, достапен во две кубикажи.",
+    shortDesc: "Нејкед стрит мотор од 125cc со агресивен став.",
     description:
-      "Tekken е модерен нејкед мотор создаден за град и отворен пат. Достапен е во верзии од 125cc и 325cc — избери ја онаа што одговара на твојата дозвола и стил на возење.",
-    variants: [
-      { cc: 125, price: 1890 },
-      { cc: 325, price: 2590 },
-    ],
+      "Tekken 125 е модерен нејкед мотор создаден за град и отворен пат — спортска позиција, LED осветлување и дигитален дисплеј во достапна класа од 125cc.",
+    variants: [{ cc: 125, price: 1790 }],
     images: ["/moto/tekken/1.jpg"],
     features: ["LED светла", "Дигитален дисплеј", "Спортска позиција", "4-тактен мотор"],
     featured: true,
@@ -83,30 +80,6 @@ export const motorcycles: Motorcycle[] = [
 
   // ── ENDURO / OFF-ROAD ───────────────────────────────────────────────────
   {
-    slug: "hamachi-200-pro",
-    name: "Hamachi 200 PRO",
-    category: "enduro",
-    year: 2025,
-    shortDesc: "Издржлив ендуро за теренско возење по пристапна цена.",
-    description:
-      "200 PRO е лесен и сигурен ендуро мотор со висок клиренс и долг ход на амортизерите — совршен за првите теренски авантури.",
-    variants: [{ cc: 200, price: 1390 }],
-    images: ["/moto/hamachi-200-pro/1.jpg"],
-    features: ["Висок клиренс", "Теренски гуми", "Долг ход на вилушка", "Електрично палење"],
-  },
-  {
-    slug: "hamachi-250",
-    name: "Hamachi 250",
-    category: "enduro",
-    year: 2025,
-    shortDesc: "Универзален ендуро од 250cc за терен и пат.",
-    description:
-      "Hamachi 250 нуди повеќе моќност и стабилност за оние што бараат сериозен теренски карактер, но и удобно возење на отворен пат.",
-    variants: [{ cc: 250, price: 1490 }],
-    images: ["/moto/hamachi-250/1.jpg"],
-    features: ["Висок клиренс", "Теренски гуми", "Издржливо шасе", "CDI палење"],
-  },
-  {
     slug: "hamachi-250-pro",
     name: "Hamachi 250 PRO",
     category: "enduro",
@@ -117,19 +90,6 @@ export const motorcycles: Motorcycle[] = [
     variants: [{ cc: 250, price: 1590 }],
     images: ["/moto/hamachi-250-pro/1.jpg"],
     features: ["Воздушно ладење", "Резервоар 10L", "Висок клиренс", "Електрично палење"],
-  },
-  {
-    slug: "hamachi-300-pro",
-    name: "Hamachi 300 PRO",
-    category: "enduro",
-    year: 2025,
-    shortDesc: "Најголемиот ендуро во серијата — 300cc, 14 КС.",
-    description:
-      "300 PRO е врвот на PRO серијата: 300cc четиритактен мотор, воздушно ладење и моќност од 14 КС за уверливи перформанси на секаков терен.",
-    variants: [{ cc: 300, price: 1590 }],
-    images: ["/moto/hamachi-300-pro/1.jpg"],
-    features: ["Воздушно ладење", "4-тактен мотор", "Висок клиренс", "Електрично палење"],
-    featured: true,
   },
   {
     slug: "hamachi-u200",
@@ -172,43 +132,6 @@ export const motorcycles: Motorcycle[] = [
 
   // ── SCOOTERS — RETRO 50cc ────────────────────────────────────────────────
   {
-    slug: "venice",
-    name: "Hamachi Venice",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "Ретро скутер со класичен шарм за град.",
-    description:
-      "Venice спојува елегантен ретро дизајн со практичност на модерен скутер — четиритактен мотор, воздушно ладење и докажан квалитет за секојдневно градско возење.",
-    variants: [{ cc: 50, price: 1350 }],
-    images: ["/moto/venice/1.jpg"],
-    features: ["4-тактен мотор", "Воздушно ладење", "Ретро дизајн", "Простор под седиште"],
-    featured: true,
-  },
-  {
-    slug: "azzuro",
-    name: "Hamachi Azzuro",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "Компактен ретро скутер по одлична цена.",
-    description:
-      "Azzuro е стилски и економичен ретро скутер — лесен за управување и идеален за секојдневните потреби во градот.",
-    variants: [{ cc: 50, price: 1290 }],
-    images: ["/moto/azzuro/1.jpg"],
-    features: ["4-тактен мотор", "Воздушно ладење", "Ретро дизајн", "Економичен"],
-  },
-  {
-    slug: "margherita",
-    name: "Hamachi Margherita",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "Италијански инспириран ретро скутер.",
-    description:
-      "Margherita носи елегантен, италијански инспириран дизајн со четиритактен мотор и докажан квалитет — за оние што сакаат стил на тркала.",
-    variants: [{ cc: 50, price: 1390 }],
-    images: ["/moto/margherita/1.jpg"],
-    features: ["4-тактен мотор", "Воздушно ладење", "Ретро дизајн", "Докажан квалитет"],
-  },
-  {
     slug: "avenza",
     name: "Hamachi Avenza",
     category: "scooter",
@@ -219,30 +142,6 @@ export const motorcycles: Motorcycle[] = [
     variants: [{ cc: 50, price: 1390 }],
     images: ["/moto/avenza/1.jpg"],
     features: ["4-тактен мотор", "Воздушно ладење", "Ретро дизајн", "Простор под седиште"],
-  },
-  {
-    slug: "symphony-s",
-    name: "Hamachi Symphony S",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "Поголем и поудобен скутер со големи тркала.",
-    description:
-      "Symphony S нуди повеќе простор, поголеми тркала и удобна позиција — врвен избор за оние што бараат комфорен скутер за подолги релации.",
-    variants: [{ cc: 50, price: 1899 }],
-    images: ["/moto/symphony-s/1.jpg"],
-    features: ["Големи тркала", "Удобно седиште", "4-тактен мотор", "Простор под седиште"],
-  },
-  {
-    slug: "il-bello-s",
-    name: "Hamachi Il Bello S Limited",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "Лимитирана ретро едиција со префинет дизајн.",
-    description:
-      "Il Bello S Limited е специјална ретро едиција со префинети детали и докажан квалитет — скутер што се истакнува со стил.",
-    variants: [{ cc: 50, price: 1450 }],
-    images: ["/moto/il-bello-s/1.jpg"],
-    features: ["Лимитирана едиција", "4-тактен мотор", "Воздушно ладење", "Ретро дизајн"],
   },
   {
     slug: "eivissa",
@@ -284,30 +183,6 @@ export const motorcycles: Motorcycle[] = [
     featured: true,
   },
   {
-    slug: "mustang",
-    name: "Hamachi Mustang",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "Спортски скутер со остри линии и став.",
-    description:
-      "Mustang е спортски скутер со остар дизајн и четиритактен мотор — лесен, агилен и подготвен за градски авантури.",
-    variants: [{ cc: 50, price: 1420 }],
-    images: ["/moto/mustang/1.jpg"],
-    features: ["Спортски дизајн", "4-тактен мотор", "Воздушно ладење", "LED детали"],
-  },
-  {
-    slug: "papaki-runner",
-    name: "HMC Papaki Runner",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "Практичен мопед-папак со кофер за товар.",
-    description:
-      "Papaki Runner е издржлив и економичен мопед од класичен тип — со кофер за товар, идеален за секојдневна употреба и достава.",
-    variants: [{ cc: 50, price: 1350 }],
-    images: ["/moto/papaki-runner/1.jpg"],
-    features: ["Кофер за товар", "Економичен", "Издржливо шасе", "Лесно одржување"],
-  },
-  {
     slug: "sym-orbit-ii",
     name: "SYM Orbit II 50",
     category: "scooter",
@@ -318,41 +193,6 @@ export const motorcycles: Motorcycle[] = [
     variants: [{ cc: 50, price: 1490 }],
     images: ["/moto/sym-orbit-ii/1.jpg"],
     features: ["4-тактен мотор", "Воздушно ладење", "Докажан квалитет", "Простор под седиште"],
-  },
-  {
-    slug: "zontes-125x",
-    name: "Zontes 125X",
-    category: "scooter",
-    year: 2026,
-    shortDesc: "Премиум макси-скутер — достапен на преднарачка.",
-    description:
-      "Zontes 125X е модерен премиум макси-скутер со богата опрема и впечатлив дизајн. Достапен на преднарачка по специјална цена, со испорака во 2026 година.",
-    variants: [{ cc: 125, price: 3290 }],
-    images: [
-      "/moto/zontes-125x/krem.jpg",
-      "/moto/zontes-125x/zelena.jpg",
-      "/moto/zontes-125x/crna.jpg",
-    ],
-    colors: [
-      { name: "Крем", hex: "#c9b79a", image: "/moto/zontes-125x/krem.jpg" },
-      { name: "Зелена", hex: "#4b5c46", image: "/moto/zontes-125x/zelena.jpg" },
-      { name: "Црна", hex: "#2b2b2d", image: "/moto/zontes-125x/crna.jpg" },
-    ],
-    features: ["Премиум опрема", "LED светла", "Дигитален дисплеј", "Достапен на преднарачка"],
-    isNew: true,
-  },
-  {
-    slug: "fort-350",
-    name: "Q Fort 350",
-    category: "scooter",
-    year: 2026,
-    shortDesc: "Макси-скутер со спортски карактер — наскоро.",
-    description:
-      "Fort 350 е макси-скутер со впечатлив спортски дизајн и удобство за подолги релации. Наскоро во понудата на Мисирли Промет.",
-    variants: [{ cc: 350 }],
-    images: ["/moto/fort-350/1.jpg"],
-    features: ["Спортски дизајн", "Удобно седиште", "LED светла", "Наскоро"],
-    isNew: true,
   },
 
   // ── SUZUKI 125cc SCOOTERS ────────────────────────────────────────────────
@@ -572,18 +412,6 @@ export const motorcycles: Motorcycle[] = [
     features: ["ABS сопирачки", "Водено ладење", "14-инчни тркала", "LED светло"],
     isNew: true,
   },
-  {
-    slug: "sym-joyride-300",
-    name: "SYM Joyride 300",
-    category: "scooter",
-    year: 2025,
-    shortDesc: "300cc GT макси-скутер со високо ветробранско стакло и туринг комфор.",
-    description:
-      "SYM Joyride 300 е GT макси-скутер создаден за удобни подолги релации — 300cc водено-ладен мотор со инјекција, високо ветробранско стакло, простран простор под седиштето и ABS сопирачки. Динамичен изглед и туринг комфор во еден пакет.",
-    variants: [{ cc: 300, price: 4990 }],
-    images: ["/moto/sym-joyride-300/1.jpg"],
-    features: ["Водено ладење", "ABS сопирачки", "Високо ветробранско стакло", "Простор под седиште"],
-  },
 
   // ── ADVENTURE ────────────────────────────────────────────────────────────
   {
@@ -676,32 +504,6 @@ export const motorcycles: Motorcycle[] = [
     ],
     features: ["~45 КС", "Паралелен твин", "Инјекција (EFI)", "Резервоар 20.5L"],
   },
-  {
-    slug: "cyclone-650",
-    name: "Cyclone RX650",
-    category: "adventure",
-    year: 2025,
-    shortDesc: "650cc паралелен твин адвенчер-турер за големи релации на пат и терен.",
-    description:
-      "Cyclone RX650 е способен адвенчер-турер од средната класа — 650cc водено-ладен паралелен твин со инјекција, двоканален ABS и висок клиренс. Со високо ветробранско стакло, LED осветлување и голем резервоар подготвен е за долги авантури на асфалт и макадам.",
-    variants: [{ cc: 650, price: 7450 }],
-    images: ["/moto/cyclone-650/1.jpg"],
-    features: ["Паралелен твин", "Двоканален ABS", "Водено ладење", "Адвенчер-турер"],
-    featured: true,
-  },
-  {
-    slug: "srt-800-sx",
-    name: "Q SRT 800 SX",
-    category: "adventure",
-    year: 2026,
-    shortDesc: "Голем адвенчер мотор — наскоро во понудата.",
-    description:
-      "SRT 800 SX е сериозен адвенчер мотор создаден за долги патувања и истражување. Наскоро достапен во Мисирли Промет.",
-    variants: [{ cc: 800 }],
-    images: ["/moto/srt-800-sx/1.jpg"],
-    features: ["Адвенчер дизајн", "Висок предно стакло", "LED светла", "Наскоро"],
-    isNew: true,
-  },
 
   // ── STREET / CRUISER (голема класа) ──────────────────────────────────────
   {
@@ -785,29 +587,344 @@ export const motorcycles: Motorcycle[] = [
     images: ["/moto/mikilon-hammer-300/1.jpg"],
     features: ["Автоматски менувач", "Електрично палење", "Носачи за товар", "Туринг квад"],
   },
+
+  // ── ДОПОЛНИТЕЛНИ МОДЕЛИ (Hamachi/HMC/Zontes 2025–2026) ──────────────────
   {
-    slug: "mikilon",
-    name: "HMC Mikilon",
-    category: "atv",
+    slug: "hamachi-angel",
+    name: "Hamachi Angel",
+    category: "scooter",
     year: 2025,
-    shortDesc: "Квад од 200cc со автоматски менувач, Б-категорија.",
+    shortDesc:
+      "Спортски 50cc скутер со динамичен став за град.",
     description:
-      "Mikilon е робустен квад од 200cc со автоматски менувач и моќност од 9 kW. Се вози со Б-категорија — подеднакво забавен на терен и практичен за работа.",
-    variants: [{ cc: 200, price: 2390 }],
-    images: ["/moto/mikilon/1.jpg"],
-    features: ["Автоматски менувач", "9 kW", "Се вози со Б-категорија", "Теренски гуми"],
+      "Angel е лесен и агилен спортски скутер со четиритактен мотор и воздушно ладење — економичен избор за секојдневно градско возење и првите километри на две тркала.",
+    variants: [{ cc: 50, price: 1150 }],
+    images: ["/moto/hamachi-angel/1.jpg", "/moto/hamachi-angel/2.jpg", "/moto/hamachi-angel/3.jpg", "/moto/hamachi-angel/4.jpg"],
+    features: ["4-тактен мотор", "Воздушно ладење", "Спортски дизајн", "LED детали"],
   },
   {
-    slug: "sfa-1000",
-    name: "SFA 1000",
+    slug: "dragon-a8",
+    name: "Hamachi Dragon A8 4T",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Спортски 50cc скутер со агресивни линии.",
+    description:
+      "Dragon A8 4T е спортски скутер со изразит дизајн, четиритактен мотор и ниска потрошувачка — забавен и практичен за градот.",
+    variants: [{ cc: 50, price: 1490 }],
+    images: ["/moto/dragon-a8/1.jpg", "/moto/dragon-a8/2.jpg", "/moto/dragon-a8/3.jpg", "/moto/dragon-a8/4.jpg"],
+    features: ["4-тактен мотор", "Воздушно ладење", "Спортски дизајн", "Простор под седиште"],
+  },
+  {
+    slug: "hamachi-jog-3",
+    name: "Hamachi Jog 3",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Компактен 50cc скутер за секојдневна употреба.",
+    description:
+      "Jog 3 е лесен градски скутер со докажан четиритактен мотор — економичен, сигурен и лесен за управување низ градската гужва.",
+    variants: [{ cc: 50, price: 1090 }],
+    images: ["/moto/hamachi-jog-3/1.jpg", "/moto/hamachi-jog-3/2.jpg", "/moto/hamachi-jog-3/3.jpg", "/moto/hamachi-jog-3/4.jpg"],
+    features: ["4-тактен мотор", "Воздушно ладење", "Компактен", "Економичен"],
+  },
+  {
+    slug: "hmc-r9",
+    name: "HMC R9",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Спортски 50cc скутер со модерен дизајн.",
+    description:
+      "R9 нуди спортски изглед и сигурен четиритактен мотор со воздушно ладење — динамичен избор за млади возачи во градот.",
+    variants: [{ cc: 50, price: 1390 }],
+    images: ["/moto/hmc-r9/1.jpg", "/moto/hmc-r9/2.jpg", "/moto/hmc-r9/3.jpg", "/moto/hmc-r9/4.jpg"],
+    features: ["4-тактен мотор", "Воздушно ладење", "Спортски дизајн", "LED детали"],
+  },
+  {
+    slug: "hmc-grace-v5",
+    name: "HMC Grace V5",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Ретро 50cc скутер со елегантен, класичен шарм.",
+    description:
+      "Grace V5 спојува безвременски ретро дизајн со модерна практичност — четиритактен мотор, удобна позиција и стил што се издвојува.",
+    variants: [{ cc: 50, price: 1590 }],
+    images: ["/moto/hmc-grace-v5/1.jpg", "/moto/hmc-grace-v5/2.jpg", "/moto/hmc-grace-v5/3.jpg", "/moto/hmc-grace-v5/4.jpg"],
+    features: ["4-тактен мотор", "Воздушно ладење", "Ретро дизајн", "Простор под седиште"],
+  },
+  {
+    slug: "dragon-a9-2t",
+    name: "Hamachi Dragon A9 2T",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Двотактен 50cc скутер со жива динамика.",
+    description:
+      "Dragon A9 2T е лесен двотактен скутер со брза реакција и минимално одржување — директен и забавен за градско возење.",
+    variants: [{ cc: 50, price: 1190 }],
+    images: ["/moto/dragon-a9-2t/1.jpg", "/moto/dragon-a9-2t/2.jpg", "/moto/dragon-a9-2t/3.jpg", "/moto/dragon-a9-2t/4.jpg"],
+    features: ["2-тактен мотор", "Воздушно ладење", "Лесна тежина", "Електрично + кик палење"],
+  },
+  {
+    slug: "hamachi-evoc-125",
+    name: "Hamachi EVOC 125",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Спортски 125cc скутер со футуристички дизајн.",
+    description:
+      "EVOC 125 го носи препознатливиот футуристички став на EVOC серијата во посилна класа од 125cc — динамичен и практичен за секој ден.",
+    variants: [{ cc: 125, price: 1640 }],
+    images: ["/moto/hamachi-evoc-125/1.jpg", "/moto/hamachi-evoc-125/2.jpg", "/moto/hamachi-evoc-125/3.jpg", "/moto/hamachi-evoc-125/4.jpg"],
+    features: ["125cc 4-тактен мотор", "Воздушно ладење", "Спортски дизајн", "LED светла"],
+  },
+  {
+    slug: "imola-125",
+    name: "Hamachi Imola 125",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Комплетно опремен 125cc скутер за секојдневие.",
+    description:
+      "Imola 125 е модерен градски скутер со четиритактен мотор од 125cc, богата опрема и удобство за подолги релации.",
+    variants: [{ cc: 125, price: 2190 }],
+    images: ["/moto/imola-125/1.jpg", "/moto/imola-125/2.jpg", "/moto/imola-125/3.jpg", "/moto/imola-125/4.jpg"],
+    features: ["125cc 4-тактен мотор", "LED светла", "Дигитален дисплеј", "Простор под седиште"],
+  },
+  {
+    slug: "hmc-adv-150",
+    name: "HMC ADV 150",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Адвенчер макси-скутер од 150cc со висок став.",
+    description:
+      "ADV 150 комбинира адвенчер естетика со практичноста на скутер — висок клиренс, заштита од ветер и четиритактен мотор за град и отворен пат.",
+    variants: [{ cc: 150, price: 2390 }],
+    images: ["/moto/hmc-adv-150/1.jpg", "/moto/hmc-adv-150/2.jpg", "/moto/hmc-adv-150/3.jpg", "/moto/hmc-adv-150/4.jpg"],
+    features: ["150cc 4-тактен мотор", "ADV дизајн", "LED светла", "Голем предводобран"],
+  },
+  {
+    slug: "hmc-nvh-125",
+    name: "HMC NVH 125",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Компактен 125cc макси-скутер за градот.",
+    description:
+      "NVH 125 е практичен скутер од средна класа со четиритактен мотор од 125cc — удобен, економичен и лесен за секојдневна употреба.",
+    variants: [{ cc: 125, price: 1790 }],
+    images: ["/moto/hmc-nvh-125/1.jpg", "/moto/hmc-nvh-125/2.jpg"],
+    features: ["125cc 4-тактен мотор", "LED светла", "Простор под седиште", "Економичен"],
+  },
+  {
+    slug: "hmc-vampire-200",
+    name: "HMC Vampire 200",
+    category: "scooter",
+    year: 2025,
+    shortDesc:
+      "Моќен 200cc макси-скутер за подолги релации.",
+    description:
+      "Vampire 200 нуди перформанси и удобство на макси-скутер класата — мотор од 200cc, богата опрема и заштита за долги патувања.",
+    variants: [{ cc: 200, price: 2790 }],
+    images: ["/moto/hmc-vampire-200/1.jpg", "/moto/hmc-vampire-200/2.jpg", "/moto/hmc-vampire-200/3.jpg", "/moto/hmc-vampire-200/4.jpg"],
+    features: ["200cc мотор", "LED светла", "Дигитален дисплеј", "Голем товарен простор"],
+  },
+  {
+    slug: "hmc-galaxy-pro-125",
+    name: "HMC Galaxy Pro 125",
+    category: "naked",
+    year: 2025,
+    shortDesc:
+      "Спортски 125cc нејкед со модерна опрема.",
+    description:
+      "Galaxy Pro 125 спојува спортски дизајн со практичност — четиритактен мотор од 125cc, LED светла и дигитален инструмент.",
+    variants: [{ cc: 125, price: 1350 }],
+    images: ["/moto/hmc-galaxy-pro-125/1.jpg", "/moto/hmc-galaxy-pro-125/2.jpg", "/moto/hmc-galaxy-pro-125/3.jpg", "/moto/hmc-galaxy-pro-125/4.jpg"],
+    features: ["125cc 4-тактен мотор", "LED светла", "Дигитален дисплеј", "Спортска позиција"],
+  },
+  {
+    slug: "hmc-krs-200",
+    name: "HMC KRS 200",
+    category: "naked",
+    year: 2025,
+    shortDesc:
+      "Нејкед мотор од 200cc со агресивен став.",
+    description:
+      "KRS 200 е динамичен нејкед за град и отворен пат — мотор од 200cc, спортска геометрија и модерна опрема.",
+    variants: [{ cc: 200, price: 1350 }],
+    images: ["/moto/hmc-krs-200/1.jpg", "/moto/hmc-krs-200/2.jpg", "/moto/hmc-krs-200/3.jpg", "/moto/hmc-krs-200/4.jpg"],
+    features: ["200cc мотор", "LED светла", "Дигитален дисплеј", "Спортска позиција"],
+  },
+  {
+    slug: "hamachi-buccaner-250",
+    name: "Hamachi Buccaner 250-V",
+    category: "naked",
+    year: 2025,
+    shortDesc:
+      "V-твин крусер-нејкед од 250cc со карактер.",
+    description:
+      "Buccaner 250-V носи препознатлив крусер став со мотор од 250cc — удобна позиција, ниска линија на седиштето и стил што се памети.",
+    variants: [{ cc: 250, price: 3090 }],
+    images: ["/moto/hamachi-buccaner-250/1.jpg", "/moto/hamachi-buccaner-250/2.jpg", "/moto/hamachi-buccaner-250/3.jpg", "/moto/hamachi-buccaner-250/4.jpg"],
+    features: ["250cc мотор", "Крусер дизајн", "LED светла", "Ниска висина на седиште"],
+  },
+  {
+    slug: "hamachi-gts-280",
+    name: "Hamachi GTS 280",
+    category: "naked",
+    year: 2025,
+    shortDesc:
+      "Спортски нејкед од 280cc за динамично возење.",
+    description:
+      "GTS 280 е моќен нејкед од средна класа — мотор од 280cc, спортска геометрија и модерна опрема за уверливи перформанси.",
+    variants: [{ cc: 280, price: 2290 }],
+    images: ["/moto/hamachi-gts-280/1.jpg", "/moto/hamachi-gts-280/2.jpg", "/moto/hamachi-gts-280/3.jpg", "/moto/hamachi-gts-280/4.jpg"],
+    features: ["280cc мотор", "LED светла", "Дигитален дисплеј", "Спортска позиција"],
+  },
+  {
+    slug: "hamachi-alien-monster-300",
+    name: "Hamachi Alien Monster 300",
+    category: "naked",
+    year: 2026,
+    shortDesc:
+      "Агресивен нејкед стритфајтер од 300cc.",
+    description:
+      "Alien Monster 300 е впечатлив стритфајтер со остар дизајн и мотор од 300cc — создаден за оние што бараат став и перформанси на градските улици.",
+    variants: [{ cc: 300, price: 3590 }],
+    images: ["/moto/hamachi-alien-monster-300/1.jpg", "/moto/hamachi-alien-monster-300/2.jpg", "/moto/hamachi-alien-monster-300/3.jpg", "/moto/hamachi-alien-monster-300/4.jpg"],
+    features: ["300cc мотор", "LED светла", "Дигитален дисплеј", "Стритфајтер дизајн"],
+    isNew: true,
+    featured: true,
+  },
+  {
+    slug: "hamachi-rs310",
+    name: "Hamachi RS310",
+    category: "naked",
+    year: 2025,
+    shortDesc:
+      "Спортски нејкед од 310cc со модерна линија.",
+    description:
+      "RS310 е динамичен нејкед од средната класа — мотор од 310cc, спортска ергономија и комплетна LED опрема за секојдневно уживање.",
+    variants: [{ cc: 310, price: 2490 }],
+    images: ["/moto/hamachi-rs310/1.jpg", "/moto/hamachi-rs310/2.jpg", "/moto/hamachi-rs310/3.jpg", "/moto/hamachi-rs310/4.jpg"],
+    features: ["310cc мотор", "LED светла", "Дигитален дисплеј", "Спортска позиција"],
+  },
+  {
+    slug: "hamachi-tekken-325",
+    name: "Hamachi Tekken 325",
+    category: "naked",
+    year: 2026,
+    shortDesc:
+      "Најсилниот Tekken — нејкед стрит од 325cc.",
+    description:
+      "Tekken 325 2026 е врвот на Tekken серијата: мотор од 325cc, агресивен нејкед дизајн и модерна опрема за отворен пат и град.",
+    variants: [{ cc: 325, price: 2590 }],
+    images: ["/moto/hamachi-tekken-325/1.jpg", "/moto/hamachi-tekken-325/2.jpg", "/moto/hamachi-tekken-325/3.jpg", "/moto/hamachi-tekken-325/4.jpg"],
+    features: ["325cc мотор", "LED светла", "Дигитален дисплеј", "Спортска позиција"],
+    isNew: true,
+  },
+  {
+    slug: "hmc-150gy-18",
+    name: "HMC 150GY-18 Pro",
+    category: "enduro",
+    year: 2025,
+    shortDesc:
+      "Ендуро од 150cc со тркала од 18/21 инчи.",
+    description:
+      "150GY-18 Pro е лесен и издржлив ендуро мотор со висок клиренс и долг ход на амортизерите — идеален за терен и макадам.",
+    variants: [{ cc: 150, price: 1300 }],
+    images: ["/moto/hmc-150gy-18/1.jpg", "/moto/hmc-150gy-18/2.jpg", "/moto/hmc-150gy-18/3.jpg", "/moto/hmc-150gy-18/4.jpg"],
+    features: ["150cc 4-тактен мотор", "Висок клиренс", "Теренски гуми", "Долг ход на вилушка"],
+  },
+  {
+    slug: "hmc-200gy-18",
+    name: "HMC 200GY-18 Pro",
+    category: "enduro",
+    year: 2025,
+    shortDesc:
+      "Универзален ендуро од 200cc за терен и пат.",
+    description:
+      "200GY-18 Pro нуди повеќе моќ и стабилност со мотор од 200cc, висок клиренс и издржливо шасе — подготвен за посериозни теренски авантури.",
+    variants: [{ cc: 200, price: 1390 }],
+    images: ["/moto/hmc-200gy-18/1.jpg", "/moto/hmc-200gy-18/2.jpg", "/moto/hmc-200gy-18/3.jpg", "/moto/hmc-200gy-18/4.jpg"],
+    features: ["200cc 4-тактен мотор", "Висок клиренс", "Теренски гуми", "Издржливо шасе"],
+  },
+  {
+    slug: "hmc-250-18l",
+    name: "HMC 250-18L",
+    category: "enduro",
+    year: 2025,
+    shortDesc:
+      "Ендуро од 250cc со долг ход и висок клиренс.",
+    description:
+      "250-18L е моќен ендуро за посериозни терени — мотор од 250cc, долг ход на амортизерите и издржлива конструкција.",
+    variants: [{ cc: 250, price: 1490 }],
+    images: ["/moto/hmc-250-18l/1.jpg", "/moto/hmc-250-18l/2.jpg", "/moto/hmc-250-18l/3.jpg", "/moto/hmc-250-18l/4.jpg"],
+    features: ["250cc 4-тактен мотор", "Висок клиренс", "Долг ход на амортизери", "Теренски гуми"],
+  },
+  {
+    slug: "hmc-enduromax-200",
+    name: "HMC EnduroMax 200",
+    category: "enduro",
+    year: 2026,
+    shortDesc:
+      "Модерен ендуро од 200cc со агресивен дизајн.",
+    description:
+      "EnduroMax 200 (2026) е нова генерација ендуро со освежен дизајн, мотор од 200cc и опрема подготвена за секаков терен.",
+    variants: [{ cc: 200, price: 1590 }],
+    images: ["/moto/hmc-enduromax-200/1.jpg", "/moto/hmc-enduromax-200/2.jpg", "/moto/hmc-enduromax-200/3.jpg", "/moto/hmc-enduromax-200/4.jpg"],
+    features: ["200cc 4-тактен мотор", "Висок клиренс", "LED светла", "Долг ход на вилушка"],
+    isNew: true,
+  },
+  {
+    slug: "hmc-enduromax-250",
+    name: "HMC EnduroMax 250",
+    category: "enduro",
+    year: 2026,
+    shortDesc:
+      "Најсилниот EnduroMax — 250cc за секаков терен.",
+    description:
+      "EnduroMax 250 (2026) е врвот на серијата: мотор од 250cc, нов дизајн и издржлива конструкција за бескомпромисни теренски перформанси.",
+    variants: [{ cc: 250, price: 1690 }],
+    images: ["/moto/hmc-enduromax-250/1.jpg", "/moto/hmc-enduromax-250/2.jpg", "/moto/hmc-enduromax-250/3.jpg", "/moto/hmc-enduromax-250/4.jpg"],
+    features: ["250cc 4-тактен мотор", "Висок клиренс", "LED светла", "Долг ход на амортизери"],
+    isNew: true,
+    featured: true,
+  },
+  {
+    slug: "zontes-703rr",
+    name: "Zontes 703 RR",
+    category: "naked",
+    year: 2026,
+    shortDesc:
+      "Спортски мотор од 700cc со полна оплата.",
+    description:
+      "Zontes 703 RR е врвен спортски мотор со трицилиндричен мотор од 700cc, полна аеродинамична оплата и премиум опрема — за возачи што бараат перформанси и престиж.",
+    variants: [{ cc: 700, price: 8390 }],
+    images: ["/moto/zontes-703rr/silver-blue.jpg", "/moto/zontes-703rr/white-red.jpg"],
+    colors: [
+      { name: "SILVER BLUE", hex: "#c3ccd4", image: "/moto/zontes-703rr/silver-blue.jpg" },
+      { name: "WHITE RED", hex: "#dcdcdc", image: "/moto/zontes-703rr/white-red.jpg" },
+    ],
+    features: ["700cc трицилиндричен мотор", "Полна оплата", "TFT дисплеј", "Premium суспензија"],
+    isNew: true,
+    featured: true,
+  },
+  {
+    slug: "hm-300-atv",
+    name: "Hamachi HM 300 ATV",
     category: "atv",
     year: 2025,
-    shortDesc: "Моќен теренски квад од највисока класа.",
+    shortDesc:
+      "Четиритркач од 300cc за работа и авантура.",
     description:
-      "SFA 1000 е квад од највисоката класа — изграден за најтешки теренски услови, со импозантна моќност и издржливост.",
-    variants: [{ cc: 1000, price: 8990 }],
-    images: ["/moto/sfa-1000/1.jpg"],
-    features: ["Висока моќност", "Теренски гуми", "Издржливо шасе", "4x4 способност"],
+      "HM 300 е робустен ATV со мотор од 300cc — способен на терен, со издржливо шасе и голема носивост за работа и рекреација.",
+    variants: [{ cc: 300, price: 2890 }],
+    images: ["/moto/hm-300-atv/1.jpg", "/moto/hm-300-atv/2.jpg", "/moto/hm-300-atv/3.jpg", "/moto/hm-300-atv/4.jpg"],
+    features: ["300cc мотор", "4x2 погон", "Издржливо шасе", "Теренски гуми"],
   },
 ];
 
