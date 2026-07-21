@@ -77,7 +77,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                 <img
                   src={car.images[imgIndex]}
                   alt={car.name}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain p-3"
                 />
               ) : (
                 <div className="dot-grid flex h-full w-full flex-col items-center justify-center gap-2 text-blue/40">
@@ -110,7 +110,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                     }`}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={src} alt="" className="h-full w-full object-cover" />
+                    <img src={src} alt="" className="h-full w-full object-contain p-1" />
                   </button>
                 ))}
               </div>

@@ -27,7 +27,7 @@ export default function CarCard({ car }: { car: Car }) {
           <img
             src={car.images[0]}
             alt={car.name}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="dot-grid flex h-full w-full flex-col items-center justify-center gap-2 text-white/20">
