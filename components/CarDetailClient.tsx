@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   Phone,
@@ -36,9 +37,24 @@ function featureIcon(f: string) {
 export default function CarDetailClient({ car }: { car: Car }) {
   const [imgIndex, setImgIndex] = useState(0);
   const [colorIndex, setColorIndex] = useState(0);
+  const [trimIndex, setTrimIndex] = useState(0);
   const colors = car.colors ?? [];
   const hasColors = colors.length > 0;
   const hasImages = car.images.length > 0;
+
+  const trims = car.trims ?? [];
+  const hasTrims = trims.length > 0;
+  const trim = hasTrims ? trims[trimIndex] : undefined;
+
+  // Higher trims are cumulative — show every feature from the base trim up to the
+  // selected one. Falls back to the flat `features` list when a car has no trims.
+  const equipment = hasTrims
+    ? trims.slice(0, trimIndex + 1).flatMap((t) => t.features)
+    : car.features;
+
+  // Price shown in the price block: selected trim's action price, else `priceFrom`.
+  const activePrice = trim ? trim.priceFrom : car.priceFrom;
+  const activeRegular = trim?.priceRegular;
 
   const specs = [
     { icon: CarIcon, label: "Каросерија", value: car.bodyType, key: "body" },
@@ -133,14 +149,55 @@ export default function CarDetailClient({ car }: { car: Car }) {
             {/* Price */}
             <div className="mt-6 rounded-2xl border border-line bg-cloud px-5 py-4">
               <span className="font-body text-[11px] uppercase tracking-wide text-mute">
-                Цена
+                {hasTrims ? `Цена (${trim!.level})` : "Цена"}
               </span>
-              <div className="mt-1 flex items-end gap-2.5">
-                <span className="nums text-4xl font-bold text-white sm:text-[2.75rem] sm:leading-none">
-                  {car.priceFrom ? `од ${formatEUR(car.priceFrom)} €` : "по барање"}
-                </span>
+              <div className="mt-1 flex flex-wrap items-end gap-x-2.5 gap-y-1">
+                <motion.span
+                  key={`${trimIndex}-${activePrice}`}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="nums text-4xl font-bold text-white sm:text-[2.75rem] sm:leading-none"
+                >
+                  {activePrice ? `од ${formatEUR(activePrice)} €` : "по барање"}
+                </motion.span>
+                {activeRegular && activeRegular > (activePrice ?? 0) && (
+                  <span className="nums pb-1 text-lg font-semibold text-mute line-through decoration-red/60">
+                    {formatEUR(activeRegular)} €
+                  </span>
+                )}
               </div>
             </div>
+
+            {/* Trim picker */}
+            {hasTrims && (
+              <div className="mt-6">
+                <span className="font-heading text-xs font-bold uppercase tracking-wide text-ink">
+                  Изведба (пакет опрема)
+                </span>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  {trims.map((t, i) => (
+                    <button
+                      key={t.level}
+                      onClick={() => setTrimIndex(i)}
+                      className={`relative rounded-2xl border-2 px-5 py-3 text-left transition-all ${
+                        i === trimIndex
+                          ? "border-red bg-red-muted"
+                          : "border-line bg-surface-2 hover:border-red/50"
+                      }`}
+                    >
+                      <span className="block font-heading text-lg font-bold text-ink">{t.level}</span>
+                      <span className="nums text-xs text-mute">од {formatEUR(t.priceFrom)} €</span>
+                      {i === trimIndex && (
+                        <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red text-white">
+                          <Check size={12} strokeWidth={3} />
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Colour swatches */}
             {hasColors && (
@@ -240,18 +297,39 @@ export default function CarDetailClient({ car }: { car: Car }) {
           <p className="mt-4 font-body text-[15px] leading-relaxed text-ink-soft">
             {car.description}
           </p>
+          {car.extraInfo && (
+            <p className="mt-4 font-body text-[15px] leading-relaxed text-ink-soft">
+              {car.extraInfo}
+            </p>
+          )}
+          {car.sourceUrl && (
+            <a
+              href={car.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-1.5 font-heading text-sm font-bold text-blue-light transition-colors hover:text-white"
+            >
+              Повеќе на официјалната страница на Suzuki
+              <ArrowUpRight size={16} />
+            </a>
+          )}
         </div>
 
-        {car.features.length > 0 && (
+        {equipment.length > 0 && (
           <div>
             <div className="flex items-center gap-2.5">
               <span className="h-5 w-1 rounded-full bg-red" />
               <h2 className="font-heading text-lg font-black uppercase tracking-wide text-ink">
-                Опрема
+                Опрема{hasTrims ? ` · ${trim!.level}` : ""}
               </h2>
             </div>
+            {hasTrims && (
+              <p className="mt-2 font-body text-xs text-mute">
+                Прикажана е опремата за избраната изведба (вклучува и пониските пакети).
+              </p>
+            )}
             <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-              {car.features.map((f) => {
+              {equipment.map((f) => {
                 const Icon = featureIcon(f);
                 return (
                   <li
@@ -269,6 +347,70 @@ export default function CarDetailClient({ car }: { car: Car }) {
           </div>
         )}
       </div>
+
+      {/* ══ Safety — Suzuki Safety Support ══ */}
+      {(car.safetyHighlights?.length || car.safety?.length) && (
+        <div className="mt-12">
+          <div className="flex items-center gap-2.5">
+            <span className="h-5 w-1 rounded-full bg-red" />
+            <h2 className="font-heading text-lg font-black uppercase tracking-wide text-ink">
+              Безбедност · Suzuki Safety Support
+            </h2>
+          </div>
+
+          {/* Highlighted systems */}
+          {car.safetyHighlights && car.safetyHighlights.length > 0 && (
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {car.safetyHighlights.map((h) => (
+                <div
+                  key={h.title}
+                  className="rounded-2xl border border-line bg-surface p-5"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-muted">
+                      <ShieldCheck size={18} className="text-blue-light" />
+                    </span>
+                    <h3 className="font-heading text-base font-bold text-ink">{h.title}</h3>
+                  </div>
+                  <p className="mt-3 font-body text-sm leading-relaxed text-ink-soft">{h.text}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Full safety system list */}
+          {car.safety && car.safety.length > 0 && (
+            <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+              {car.safety.map((s) => (
+                <li
+                  key={s}
+                  className="flex items-center gap-3 rounded-xl border border-line bg-surface px-3.5 py-3 font-body text-sm text-ink-soft"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-muted">
+                    <ShieldCheck size={15} className="text-blue-light" />
+                  </span>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {car.sourceUrl && (
+            <p className="mt-5 font-body text-xs text-mute">
+              Извор: Suzuki ·{" "}
+              <a
+                href={car.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-semibold text-blue-light transition-colors hover:text-white"
+              >
+                погледни ги сите детали на suzukiauto.mk
+                <ArrowUpRight size={13} />
+              </a>
+            </p>
+          )}
+        </div>
+      )}
 
       {/* ══ Trust strip ══ */}
       <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
