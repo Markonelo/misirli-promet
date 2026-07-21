@@ -18,7 +18,17 @@ function ScrollResetter() {
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.085,
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 1.6,
+        syncTouch: false,
+        easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      }}
+    >
       <ScrollResetter />
       {children}
     </ReactLenis>

@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: "Мисирли Промет | Мотоцикли, скутери и квадови — Битола",
     description: "Продажба на мотоцикли, скутери и квадови во Битола.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Мисирли Промет — Битола" }],
+    images: [{ url: "/hero.jpg", width: 1200, height: 630, alt: "Мисирли Промет — Битола" }],
   },
   twitter: { card: "summary_large_image", title: "Мисирли Промет | Мотоцикли и скутери" },
   robots: { index: true, follow: true },

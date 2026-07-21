@@ -6,7 +6,7 @@ export default function PageHero({
   title,
   subtitle,
   full = false,
-  image = "/salon.jpg",
+  image = "/Photos/Outside.jpg",
 }: {
   kicker?: string;
   title: string;
@@ -23,19 +23,16 @@ export default function PageHero({
           <div className="absolute inset-0 bg-[radial-gradient(125%_105%_at_50%_28%,#3b4250_0%,#222834_45%,#0e1219_78%,#080b11_100%)]" />
           <div className="pointer-events-none absolute left-1/2 top-0 h-[70%] w-[60%] -translate-x-1/2 bg-[radial-gradient(60%_80%_at_50%_0%,rgba(255,255,255,0.14),transparent_70%)]" />
 
-          {/* TODO(client): salon / showroom photo at /public/salon.jpg */}
+          {/* Salon / showroom photo */}
           <FallbackImage
             src={image}
             alt={title}
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
 
-          {/* Placeholder hint */}
-          <div className="pointer-events-none absolute left-1/2 top-[60%] flex -translate-x-1/2 flex-col items-center gap-2 text-white/20">
-            <Bike size={66} strokeWidth={1.1} />
-            <span className="font-heading text-[11px] font-bold uppercase tracking-[0.22em]">
-              Слика од салон · /public/salon.jpg
-            </span>
+          {/* Placeholder hint — only visible while the photo is missing */}
+          <div className="pointer-events-none absolute left-1/2 top-[58%] flex -translate-x-1/2 flex-col items-center gap-2 text-white/15">
+            <Bike size={58} strokeWidth={1.1} />
           </div>
 
           {/* Legibility vignette */}

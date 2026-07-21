@@ -38,7 +38,26 @@
 
 html {
   overflow-x: clip;
-  scroll-behavior: smooth;
+}
+
+/* ── Lenis smooth scroll ──
+   Lenis drives scrolling in JS, so native smooth-scroll must stay off to avoid
+   a double-eased, janky feel. These are Lenis's recommended base styles. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 body {

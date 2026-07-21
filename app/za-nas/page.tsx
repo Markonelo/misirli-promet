@@ -42,16 +42,15 @@ export default function ZaNasPage() {
           {/* Big horizontal frame */}
           <Reveal delay={0.1}>
             <div className="relative mt-10 aspect-[16/7] w-full overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-[#11233F] to-[#0E1219]">
-              {/* TODO(client): wide team / showroom photo at /public/about.jpg */}
               <div className="dot-grid absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/20">
                 <Bike size={54} strokeWidth={1.2} />
                 <span className="font-heading text-[11px] font-bold uppercase tracking-[0.22em]">
-                  Слика од салон · /public/about.jpg
+                  Слика наскоро
                 </span>
               </div>
               <FallbackImage
-                src="/about.jpg"
-                alt="Мисирли Промет"
+                src="/Photos/Outside.jpg"
+                alt="Мисирли Промет — салон во Битола"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
@@ -96,13 +95,12 @@ export default function ZaNasPage() {
 
           <Reveal delay={0.1} className="h-full">
             <div className="relative h-full min-h-[20rem] overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-[#11233F] to-[#0E1219]">
-              {/* TODO(client): add a shop / team photo at /public/about-2.jpg */}
               <div className="dot-grid absolute inset-0 flex items-center justify-center font-heading text-sm font-bold uppercase tracking-widest text-white/25">
-                Слика од салонот
+                Слика наскоро
               </div>
               <FallbackImage
-                src="/about-2.jpg"
-                alt="Мисирли Промет"
+                src="/offer-1.png"
+                alt="Мисирли Промет — салон"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>

@@ -14,7 +14,7 @@ export default function MotocikliPage() {
     <>
       <PageHero
         full
-        image="/salon.jpg"
+        image="/Photos/Outside.jpg"
         kicker="Понуда"
         title="Нашата понуда"
         subtitle="Избери модел, а потоа неговата верзија на мотор. Сите цени се ориентациони — јави се за актуелна понуда."
