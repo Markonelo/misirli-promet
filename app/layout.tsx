@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import { FavoritesProvider } from "@/components/FavoritesContext";
 import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgress from "@/components/ScrollProgress";
 
 // Heading — Exo 2: modern geometric sans with a techy, automotive edge.
 // Ships native Cyrillic so Macedonian renders with no fallback hack.
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-svh flex-col font-body antialiased">
         <FavoritesProvider>
           <SmoothScroll>
+            <ScrollProgress />
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
