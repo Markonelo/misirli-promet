@@ -120,7 +120,10 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
       <div className="mt-6 overflow-hidden rounded-[2rem] border border-line bg-surface shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
         <div className="grid lg:grid-cols-[1.06fr_0.94fr]">
           {/* ── Gallery ── */}
-          <div className="relative flex flex-col gap-3 p-4 sm:p-5">
+          {/* min-w-0: without it the grid item defaults to min-width:auto and the
+              loaded photo's intrinsic width forces the track wider than the phone
+              viewport, clipping the panel content ("out of frame"). */}
+          <div className="relative flex min-w-0 flex-col gap-3 p-4 sm:p-5">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-blue-sky to-cloud-2">
               {hasColors || hasImages ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -182,7 +185,7 @@ export default function MotoDetailClient({ moto }: { moto: Motorcycle }) {
           </div>
 
           {/* ── Info ── */}
-          <div className="flex flex-col p-6 sm:p-8">
+          <div className="flex min-w-0 flex-col p-6 sm:p-8">
             <h1 className="font-heading text-3xl font-black leading-tight tracking-tight text-ink sm:text-4xl">
               {moto.name}
             </h1>
