@@ -252,8 +252,10 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 1024px) and (min-height: 820px) {
   .filter-sticky {
     position: sticky;
-    top: 84px;
-    max-height: calc(100dvh - 104px);
+    /* Clear the fixed header (pill ≈ 76px tall + top padding) with a comfortable
+       gap so the panel never slides up into the header while scrolling. */
+    top: 108px;
+    max-height: calc(100dvh - 128px);
     overflow-y: auto;
     overscroll-behavior: contain;
   }
@@ -286,13 +288,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ── Skeleton loading shimmer ──
-   Fast, subtle placeholder used by route-level loading.tsx during navigation.
-   The sweep is quick so it barely registers on fast connections, yet gives the
-   page a polished "something is coming" feel when a route takes a beat. */
+   Placeholder used by route-level loading.tsx during navigation. Base tone sits
+   clearly above the page background (YouTube-style visible grey blocks) with a
+   bright, quick sweep so the "something is coming" state reads at a glance even
+   on fast loads. */
 .skeleton {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-surface);
+  background-color: #29303f;
   border: 1px solid var(--color-line);
 }
 .skeleton::after {
@@ -303,12 +306,12 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.06) 45%,
-    rgba(255, 255, 255, 0.10) 50%,
-    rgba(255, 255, 255, 0.06) 55%,
+    rgba(255, 255, 255, 0.10) 40%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.10) 60%,
     transparent 100%
   );
-  animation: shimmer 1.15s ease-in-out infinite;
+  animation: shimmer 1.25s ease-in-out infinite;
 }
 @keyframes shimmer {
   100% { transform: translateX(100%); }
