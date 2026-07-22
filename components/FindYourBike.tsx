@@ -11,7 +11,7 @@ export default function FindYourBike() {
           <div className="pointer-events-none absolute -right-20 -top-24 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(90,160,240,0.35),transparent_65%)] blur-2xl" />
           <div className="dot-grid pointer-events-none absolute inset-0 opacity-30" />
 
-          <div className="relative grid items-center gap-6 p-8 sm:p-10 md:grid-cols-2 md:p-12">
+          <div className="relative grid items-center gap-6 p-8 sm:p-10 lg:grid-cols-2 lg:p-12">
             {/* Copy */}
             <div>
               <h2 className="font-heading text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl">
@@ -31,8 +31,8 @@ export default function FindYourBike() {
               </div>
             </div>
 
-            {/* Bike */}
-            <div className="relative flex h-56 items-center justify-center sm:h-64 md:h-72">
+            {/* Bike — desktop only (removed on mobile/tablet where it overlapped the copy) */}
+            <div className="relative hidden h-72 items-center justify-center lg:flex">
               <FallbackImage
                 src="/cta-bike.png"
                 alt="Мотоцикл"

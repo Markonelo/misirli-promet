@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Star } from "lucide-react";
 
 type Review = {
@@ -115,6 +116,10 @@ export default function Testimonials() {
   // Two copies for a seamless infinite loop.
   const loop = [...reviews, ...reviews];
 
+  // Pause the auto-scroll while the visitor is reading: on mouse hover (desktop)
+  // and while a finger is touching / dragging (touch devices). Resume on release.
+  const [paused, setPaused] = useState(false);
+
   return (
     <section className="section-padding overflow-hidden bg-bg">
       <div className="container-wide">
@@ -130,15 +135,25 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Auto-moving marquee (pauses on hover) */}
-      <div className="group relative mt-10">
+      {/* Auto-moving marquee — pauses on hover (desktop) and on touch/drag (mobile) */}
+      <div
+        className="relative mt-10"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setPaused(false)}
+        onTouchCancel={() => setPaused(false)}
+      >
         {/* Edge fades */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg to-transparent sm:w-32" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg to-transparent sm:w-32" />
 
         <div
-          className="flex w-max gap-6 px-6 py-6 will-change-transform group-hover:[animation-play-state:paused] motion-reduce:[animation:none]"
-          style={{ animation: "marquee 55s linear infinite" }}
+          className="flex w-max gap-6 px-6 py-6 will-change-transform motion-reduce:[animation:none]"
+          style={{
+            animation: "marquee 55s linear infinite",
+            animationPlayState: paused ? "paused" : "running",
+          }}
         >
           {loop.map((r, i) => (
             <ReviewCard key={`${r.name}-${i}`} r={r} />

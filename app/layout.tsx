@@ -71,11 +71,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
         />
       </head>
-      <body className="font-body antialiased">
+      <body className="flex min-h-svh flex-col font-body antialiased">
         <FavoritesProvider>
           <SmoothScroll>
             <Header />
-            <main>{children}</main>
+            <main className="flex-1">{children}</main>
             <Footer />
             <FloatingActions />
           </SmoothScroll>

@@ -41,7 +41,7 @@ export default function ZaNasPage() {
 
           {/* Big horizontal frame */}
           <Reveal delay={0.1}>
-            <div className="relative mt-10 aspect-[16/7] w-full overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-[#11233F] to-[#0E1219]">
+            <div className="relative mt-10 aspect-[3/2] w-full overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-[#11233F] to-[#0E1219] sm:aspect-[16/8] lg:aspect-[16/7]">
               <div className="dot-grid absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/20">
                 <Bike size={54} strokeWidth={1.2} />
                 <span className="font-heading text-[11px] font-bold uppercase tracking-[0.22em]">
@@ -51,7 +51,7 @@ export default function ZaNasPage() {
               <FallbackImage
                 src="/Photos/Outside.jpg"
                 alt="Мисирли Промет — салон во Битола"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
             </div>
           </Reveal>

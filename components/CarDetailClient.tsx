@@ -86,7 +86,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
       <div className="mt-6 overflow-hidden rounded-[2rem] border border-line bg-surface shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
         <div className="grid lg:grid-cols-[1.06fr_0.94fr]">
           {/* ── Gallery ── */}
-          <div className="relative flex flex-col gap-3 p-4 sm:p-5">
+          <div className="relative flex min-w-0 flex-col gap-3 p-4 sm:p-5">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-blue-sky to-cloud-2">
               {hasImages ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -134,7 +134,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
           </div>
 
           {/* ── Info ── */}
-          <div className="flex flex-col p-6 sm:p-8">
+          <div className="flex min-w-0 flex-col p-5 sm:p-8">
             <h1 className="font-heading text-3xl font-black leading-tight tracking-tight text-ink sm:text-4xl">
               {car.name}
             </h1>
@@ -180,13 +180,13 @@ export default function CarDetailClient({ car }: { car: Car }) {
                     <button
                       key={t.level}
                       onClick={() => setTrimIndex(i)}
-                      className={`relative rounded-2xl border-2 px-5 py-3 text-left transition-all ${
+                      className={`relative rounded-2xl border-2 px-4 py-2.5 text-left transition-all sm:px-5 sm:py-3 ${
                         i === trimIndex
                           ? "border-red bg-red-muted"
                           : "border-line bg-surface-2 hover:border-red/50"
                       }`}
                     >
-                      <span className="block font-heading text-lg font-bold text-ink">{t.level}</span>
+                      <span className="block font-heading text-base font-bold text-ink sm:text-lg">{t.level}</span>
                       <span className="nums text-xs text-mute">од {formatEUR(t.priceFrom)} €</span>
                       {i === trimIndex && (
                         <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red text-white">

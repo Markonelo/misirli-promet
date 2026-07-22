@@ -20,27 +20,7 @@ export default function SearchedMotos() {
   const [tab, setTab] = useState<Tab>("all");
   const rowRef = useRef<HTMLDivElement>(null);
 
-  // Edge fades: only fade the side that actually has hidden cards, so the first
-  // and last cards stay crisp and aligned rather than being faded at rest.
-  const [edges, setEdges] = useState({ start: true, end: false });
-
   const list = motorcycles.filter((m) => tab === "all" || m.category === tab);
-
-  const updateEdges = () => {
-    const el = rowRef.current;
-    if (!el) return;
-    const start = el.scrollLeft <= 4;
-    const end = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
-    setEdges({ start, end });
-  };
-
-  // Recompute the fade state whenever the list (tab) changes or on resize.
-  useEffect(() => {
-    updateEdges();
-    window.addEventListener("resize", updateEdges);
-    return () => window.removeEventListener("resize", updateEdges);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab]);
 
   const scroll = (dir: 1 | -1) => {
     const el = rowRef.current;
@@ -53,16 +33,6 @@ export default function SearchedMotos() {
     const visible = Math.max(1, Math.floor(el.clientWidth / step));
     el.scrollBy({ left: dir * visible * step, behavior: "smooth" });
   };
-
-  // A soft mask that fades only the edges with off-screen content.
-  const maskImage =
-    edges.start && edges.end
-      ? undefined
-      : `linear-gradient(to right, ${
-          edges.start ? "#000 0" : "transparent 0"
-        }, #000 40px, #000 calc(100% - 40px), ${
-          edges.end ? "#000 100%" : "transparent 100%"
-        })`;
 
   // ── Click-and-drag to scroll with inertia (desktop/mouse). Touch keeps its
   // own native momentum scrolling. We track pointer velocity while dragging and,
@@ -174,18 +144,12 @@ export default function SearchedMotos() {
         {/* Card row */}
         <div
           ref={rowRef}
-          onScroll={updateEdges}
           onMouseDown={onDown}
           onMouseMove={onMove}
           onMouseUp={onUp}
           onMouseLeave={onUp}
           onClickCapture={onClickCapture}
           onDragStart={(e) => e.preventDefault()}
-          style={
-            maskImage
-              ? { maskImage, WebkitMaskImage: maskImage }
-              : undefined
-          }
           className="no-scrollbar mt-5 flex cursor-grab snap-x snap-mandatory touch-pan-x select-none gap-5 overflow-x-auto py-2 active:cursor-grabbing"
         >
           {list.map((m) => (

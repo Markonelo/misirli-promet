@@ -16,7 +16,6 @@ const ALL_MODELS = "Сите модели";
 // chosen brand (otherwise the list is 27+ long and runs off the screen).
 // TODO(client): wire selections to real catalogue filtering.
 const FILTERS: { key: string; label: string; options: string[] }[] = [
-  { key: "cond", label: "Состојба", options: ["Сите", "Ново", "Половно"] },
   { key: "brand", label: "Бренд", options: [ALL_BRANDS, ...BRANDS] },
   { key: "model", label: "Модел", options: [] },
   { key: "price", label: "Цена", options: ["Сите цени", "до 2.000 €", "2.000 – 4.000 €", "над 4.000 €"] },

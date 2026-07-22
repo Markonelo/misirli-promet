@@ -18,7 +18,6 @@ type CcFilter = number | "all";
 type BrandFilter = string | "all";
 type YearFilter = number | "all";
 type PriceFilter = "all" | "lt2000" | "2000-4000" | "gt4000";
-type CondFilter = "all" | "new";
 type SortKey = "featured" | "price-asc" | "price-desc";
 
 type Option = { value: string; label: string };
@@ -63,10 +62,6 @@ const YEAR_OPTS: Option[] = [
   ...YEARS.map((y) => ({ value: String(y), label: String(y) })),
 ];
 const PRICE_OPTS: Option[] = PRICES.map((p) => ({ value: p.key, label: p.label }));
-const COND_OPTS: Option[] = [
-  { value: "all", label: "Сите" },
-  { value: "new", label: "Ново" },
-];
 const SORT_OPTS: Option[] = [
   { value: "featured", label: "Препорачани" },
   { value: "price-asc", label: "Цена: ниска → висока" },
@@ -144,7 +139,6 @@ export default function MotoListing() {
   const [cc, setCc] = useState<CcFilter>("all");
   const [year, setYear] = useState<YearFilter>("all");
   const [price, setPrice] = useState<PriceFilter>("all");
-  const [cond, setCond] = useState<CondFilter>("all");
   const [sort, setSort] = useState<SortKey>("featured");
 
   const [openKey, setOpenKey] = useState<string | null>(null);
@@ -174,7 +168,6 @@ export default function MotoListing() {
       if (brand !== "all" && motoBrand(m) !== brand) return false;
       if (cc !== "all" && !m.variants.some((v) => v.cc === cc)) return false;
       if (year !== "all" && m.year !== year) return false;
-      if (cond === "new" && !m.isNew) return false;
       if (query && !m.name.toLowerCase().includes(query.toLowerCase())) return false;
       if (price !== "all") {
         const p = fromPrice(m);
@@ -194,7 +187,7 @@ export default function MotoListing() {
       r = r.sort((a, b) => Number(b.featured ?? false) - Number(a.featured ?? false));
     }
     return r;
-  }, [cat, brand, cc, year, price, cond, query, sort]);
+  }, [cat, brand, cc, year, price, query, sort]);
 
   const isFiltered =
     query !== "" ||
@@ -202,8 +195,7 @@ export default function MotoListing() {
     brand !== "all" ||
     cc !== "all" ||
     year !== "all" ||
-    price !== "all" ||
-    cond !== "all";
+    price !== "all";
 
   const clear = () => {
     setQuery("");
@@ -212,7 +204,6 @@ export default function MotoListing() {
     setCc("all");
     setYear("all");
     setPrice("all");
-    setCond("all");
     setSort("featured");
     setOpenKey(null);
   };
@@ -299,14 +290,7 @@ export default function MotoListing() {
               open={openKey === "price"}
               onToggle={() => toggle("price")}
               onChange={(v) => pick(setPrice, v as PriceFilter)}
-            />
-            <Dropdown
-              label="Состојба"
-              options={COND_OPTS}
-              value={cond}
-              open={openKey === "cond"}
-              onToggle={() => toggle("cond")}
-              onChange={(v) => pick(setCond, v as CondFilter)}
+              className="col-span-2 lg:col-span-1"
             />
             <Dropdown
               label="Сортирај"
