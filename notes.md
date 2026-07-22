@@ -32,6 +32,20 @@ npm run build    # production build (used for verification)
 - **64 vehicles**: 60 motorcycles + 4 cars. Production build exit 0, 76 static pages, no errors (`npx tsc --noEmit` clean).
 - Catalog reconciled to match the **owner's authoritative inventory chat** (~65 hamachi.mk product URLs). Speculative reseller adds removed; missing bikes added from hamachi.mk directly.
 - Color-swap works for: 3 Suzuki 125 scooters, Zontes 703F, Zontes 368 G/K, Zontes 703 RR (per-color photos).
+- Car detail pages carry real Suzuki content: GL/GL+/GLX trim picker (action + struck regular price, cumulative features), Suzuki Safety Support block, and a visible official-source link to suzukiauto.mk on every car (e-Vitara keeps generic desc + colours, source link only).
+
+## Latest session — responsive + UI polish (commit e172723)
+Device-specific fixes from owner's 9 screenshots, plus sitewide polish. All verified (`tsc` clean, build prerenders all routes):
+- **FindYourBike**: CTA quad now `lg:flex` only → hidden on mobile **and** tablet (was overlapping the text).
+- **Header**: bigger tablet header (up to 76px unscrolled, larger logo/brand) + animated 3-bar hamburger that morphs to an X; menu fades/slides in with staggered links (Framer Motion, `AnimatePresence`).
+- **layout.tsx**: `body` is flex column, `main` is `flex-1` → footer sticks to bottom on short pages.
+- **Hero + MotoListing**: removed the **"Состојба"** filter everywhere (both hero quick-filters and listing sidebar).
+- **SearchedMotos**: removed the edge-fade mask so carousel cards show 100% (no blended cut-off on drag).
+- **CarDetailClient**: mobile hardening (`min-w-0`, tighter padding, resized trim buttons) against edge overflow.
+- **za-nas**: showroom hero image frame enlarged (taller aspect ratio on phone).
+- **Testimonials**: auto-scroll marquee that pauses on hover (desktop) and on touch/drag (touchscreens).
+- **Skeleton loading**: new `components/PageSkeleton.tsx` + global `app/loading.tsx` (Next.js route Suspense) with a fast shimmer (`.skeleton` in globals.css) — barely flashes on quick loads.
+- SKIPPED per owner: phone hero redesign ("we will change that later").
 
 ## Data model notes
 - Prices are in **EUR** (e.g. `price: 1890`).
