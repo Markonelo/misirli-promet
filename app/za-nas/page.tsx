@@ -99,7 +99,7 @@ export default function ZaNasPage() {
                 Слика наскоро
               </div>
               <FallbackImage
-                src="/offer-1.png"
+                src="/salon/3.jpg"
                 alt="Мисирли Промет — салон"
                 className="absolute inset-0 h-full w-full object-cover"
               />
