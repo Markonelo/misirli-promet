@@ -150,12 +150,12 @@ export default function SearchedMotos() {
           onMouseLeave={onUp}
           onClickCapture={onClickCapture}
           onDragStart={(e) => e.preventDefault()}
-          className="no-scrollbar mt-5 flex cursor-grab snap-x snap-mandatory touch-pan-x select-none gap-5 overflow-x-auto py-2 active:cursor-grabbing"
+          className="no-scrollbar mt-5 flex cursor-grab touch-pan-x select-none gap-5 overflow-x-auto py-2 active:cursor-grabbing"
         >
           {list.map((m) => (
             <div
               key={m.slug}
-              className="w-[300px] shrink-0 snap-start sm:w-[336px]"
+              className="w-[300px] shrink-0 sm:w-[336px]"
             >
               <MotoCard moto={m} />
             </div>
