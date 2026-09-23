@@ -49,7 +49,7 @@ export default function ZaNasPage() {
                 </span>
               </div>
               <FallbackImage
-                src="/Photos/Outside.jpg"
+                src="/Photos/store-outside.png"
                 alt="Мисирли Промет — салон во Битола"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
